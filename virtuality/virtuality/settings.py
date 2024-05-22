@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     "apps.user",
     "apps.avatar",
     "apps.bot",
+    "apps.common",
 ]
 
 MIDDLEWARE = [
