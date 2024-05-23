@@ -11,6 +11,18 @@ class Specialization(models.Model):
     pass
 
 
+class Skill(models.Model):
+    pass
+
+
+class AvatarStats(models.Model):
+    pass
+
+
+class BoostStatsPerLevel(models.Model):
+    pass
+
+
 class Avatar(models.Model):
     class AvatarGender(models.TextChoices):
         MALE = "M", "Самец"
