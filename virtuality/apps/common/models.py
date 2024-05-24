@@ -43,10 +43,10 @@ class Effect(models.Model):
     stat = models.CharField(
         verbose_name="Целевой показатель",
         choices=Stats.choices,
-        max_length=15,
+        max_length=25,
     )
     direction = models.CharField(
-        verbose_name="Тип",
+        verbose_name="Вектор",
         choices=Direction.choices,
         max_length=8,
     )
