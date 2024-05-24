@@ -62,5 +62,10 @@ class Effect(models.Model):
         verbose_name="Длительность эффекта (ходов)"
     )
 
+    class Meta:
+        verbose_name = "Эффект"
+        verbose_name_plural = "Эффекты"
+        ordering = ["name"]
+
     def __str__(self):
         return f"{self.name}"
