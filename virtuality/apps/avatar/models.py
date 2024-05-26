@@ -1,6 +1,5 @@
-from django.db import models
-
 from apps.user.models import User
+from django.db import models
 
 
 class SpeciesEnhancement(models.Model):
