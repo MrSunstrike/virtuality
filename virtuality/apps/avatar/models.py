@@ -3,8 +3,37 @@ from django.db import models
 from apps.user.models import User
 
 
-class Species(models.Model):
+class SpeciesEnhancement(models.Model):
     pass
+
+
+class Species(models.Model):
+    name = models.CharField(
+        verbose_name="Название вида",
+        max_length=100,
+        unique=True,
+    )
+    description = models.TextField(
+        verbose_name="Описание вида",
+        max_length=1000,
+    )
+    enhancement_stats = models.OneToOneField(
+        verbose_name="Улучшение характеристик",
+        to=SpeciesEnhancement,
+        on_delete=models.CASCADE,
+    )
+    image = models.ImageField(
+        verbose_name="Изображение",
+        upload_to="images/species/",
+    )
+
+    class Meta:
+        verbose_name = "Вид питомца"
+        verbose_name_plural = "Виды питомцев"
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
 
 
 class Specialization(models.Model):
