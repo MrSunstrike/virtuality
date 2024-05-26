@@ -61,6 +61,10 @@ class Effect(models.Model):
     duration = models.IntegerField(
         verbose_name="Длительность эффекта (ходов)"
     )
+    is_infinite = models.BooleanField(
+        verbose_name="Перманентный эффект",
+        default=False,
+    )
 
     class Meta:
         verbose_name = "Эффект"
