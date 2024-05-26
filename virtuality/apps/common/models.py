@@ -9,19 +9,19 @@ class Effect(models.Model):
         CURRENT_MP = ("current_mp", "Текущий запас маны")
         MAX_SP = ("max_sp", "Максимальный запас выносливости")
         CURRENT_SP = ("current_sp", "Текущий запас выносливости")
-        PHYSICAL_DAMAGE = ("phys_dmg", "Физический урон")
-        MAGICAL_DAMAGE = ("mgc_dmg", "Магический урон")
-        PHYSICAL_DEFENSE = ("phys_def", "Защита от физического урона")
-        MAGICAL_DEFENSE = ("mgc_def", "Защита от магического урона")
-        REACTION_SPEED = ("reaction", "Скорость реакции")
-        MOVEMENT_SPEED = ("mv_speed", "Скорость передвижения")
-        CRITICAL_HIT_CHANCE = ("crit_chance", "Шанс на критический удар")
-        PIERCING_CHANCE = ("pierce_chane", "Шанс на пронзающий удар")
-        PHYSICAL_DAMAGE_BLOCK_CHANCE = ("phys_dmg_block_chance", "Шанс на блокирование физического урона")
-        PHYSICAL_DAMAGE_REFLECT_CHANCE = ("phys_dmg_reflect_chance", "Шанс на отражение физического урона")
+        PHYSICAL_DAMAGE = ("physical_damage", "Физический урон")
+        MAGICAL_DAMAGE = ("magical_damage", "Магический урон")
+        PHYSICAL_DEFENSE = ("physical_defense", "Защита от физического урона")
+        MAGICAL_DEFENSE = ("magical_defense", "Защита от магического урона")
+        REACTION_SPEED = ("reaction_speed", "Скорость реакции")
+        MOVEMENT_SPEED = ("movement_speed", "Скорость передвижения")
+        CRITICAL_HIT_CHANCE = ("critical_hit_chance", "Шанс на критический удар")
+        PIERCING_CHANCE = ("pierce_chance", "Шанс на пронзающий удар")
+        PHYSICAL_DAMAGE_BLOCK_CHANCE = ("physical_damage_block_chance", "Шанс на блокирование физического урона")
+        PHYSICAL_DAMAGE_REFLECT_CHANCE = ("physical_damage_reflect_chance", "Шанс на отражение физического урона")
         DODGE_CHANCE = ("dodge_chance", "Шанс на уворот от атаки")
         LUCK = ("luck", "Удача")
-        EXP = ("exp", "Опыт")
+        EXP = ("experience_points", "Опыт")
         LEVEL = ("level", "Уровень")
 
     class Direction(models.TextChoices):
@@ -43,7 +43,7 @@ class Effect(models.Model):
     stat = models.CharField(
         verbose_name="Целевой показатель",
         choices=Stats.choices,
-        max_length=25,
+        max_length=30,
     )
     direction = models.CharField(
         verbose_name="Вектор",
