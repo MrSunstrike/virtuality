@@ -48,10 +48,6 @@ class AvatarStats(models.Model):
     pass
 
 
-class BoostStatsPerLevel(models.Model):
-    pass
-
-
 class Avatar(models.Model):
     class AvatarGender(models.TextChoices):
         MALE = "M", "Самец"
@@ -60,11 +56,12 @@ class Avatar(models.Model):
     name = models.CharField(
         verbose_name="Имя",
         max_length=100,
+        unique=True,
     )
     gender = models.CharField(
         verbose_name="Пол",
         max_length=1,
-        choices=AvatarGender
+        choices=AvatarGender.choices,
     )
     species = models.ForeignKey(
         to=Species,
@@ -86,3 +83,10 @@ class Avatar(models.Model):
         on_delete=models.CASCADE,
         related_name="avatars",
     )
+
+    class Meta:
+        verbose_name = "Питомец"
+        verbose_name_plural = "Питомцы"
+
+    def __str__(self):
+        return f"{self.species} {self.name} - {self.specialization}"
