@@ -2,8 +2,56 @@ from apps.user.models import User
 from django.db import models
 
 
-class SpeciesEnhancement(models.Model):
-    pass
+class SpeciesLevelUpStats(models.Model):
+    max_hp_increase = models.PositiveIntegerField(
+        verbose_name="Максимальный запас здоровья",
+    )
+    max_mp_increase = models.PositiveIntegerField(
+        verbose_name="Максимальный запас маны",
+    )
+    max_sp_increase = models.PositiveIntegerField(
+        verbose_name="Максимальный запас выносливости",
+    )
+    physical_damage_increase = models.PositiveIntegerField(
+        verbose_name="Физический урон",
+    )
+    magical_damage_increase = models.FloatField(
+        verbose_name="Магический урон",
+    )
+    physical_defense_increase = models.PositiveIntegerField(
+        verbose_name="Защита от физического урона",
+    )
+    magical_defense_increase = models.FloatField(
+        verbose_name="Защита от магического урона",
+    )
+    reaction_speed_increase = models.PositiveIntegerField(
+        verbose_name="Скорость реакции",
+    )
+    movement_speed_increase = models.PositiveIntegerField(
+        verbose_name="Скорость передвижения",
+    )
+    critical_hit_chance_increase = models.FloatField(
+        verbose_name="Шанс на критический удар",
+    )
+    pierce_chance_increase = models.FloatField(
+        verbose_name="Шанс на пронзающий удар",
+    )
+    physical_damage_block_chance_increase = models.FloatField(
+        verbose_name="Шанс на блокирование физического урона",
+    )
+    physical_damage_reflect_chance_increase = models.FloatField(
+        verbose_name="Шанс на отражение физического урона",
+    )
+    dodge_chance_increase = models.FloatField(
+        verbose_name="Шанс на уворот от атаки",
+    )
+    luck_increase = models.FloatField(
+        verbose_name="Удача",
+    )
+
+    class Meta:
+        verbose_name = "Схема увеличения характеристик"
+        verbose_name_plural = "Схемы увеличения характеристик"
 
 
 class Species(models.Model):
@@ -18,7 +66,7 @@ class Species(models.Model):
     )
     enhancement_stats = models.OneToOneField(
         verbose_name="Улучшение характеристик",
-        to=SpeciesEnhancement,
+        to=SpeciesLevelUpStats,
         on_delete=models.CASCADE,
     )
     image = models.ImageField(
