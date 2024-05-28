@@ -85,7 +85,27 @@ class Species(models.Model):
 
 
 class Specialization(models.Model):
-    pass
+    title = models.CharField(
+        verbose_name="Название",
+        max_length=100,
+        unique=True,
+    )
+    description = models.TextField(
+        verbose_name="Описание",
+        max_length=1000,
+    )
+    image = models.ImageField(
+        verbose_name="Изображение",
+        upload_to="images/specializations/",
+    )
+
+    class Meta:
+        verbose_name = "Специализация"
+        verbose_name_plural = "Специализации"
+        ordering = ["title"]
+
+    def __str__(self):
+        return self.title
 
 
 class Skill(models.Model):
