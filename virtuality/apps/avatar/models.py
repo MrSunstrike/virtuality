@@ -1,3 +1,4 @@
+from apps.common.models import Effect
 from apps.user.models import User
 from django.db import models
 
@@ -88,7 +89,34 @@ class Specialization(models.Model):
 
 
 class Skill(models.Model):
-    pass
+    avatar_specialization = models.ForeignKey(
+        verbose_name="Специализация",
+        to=Specialization,
+        on_delete=models.CASCADE,
+        related_name="skills",
+    )
+    title = models.CharField(
+        verbose_name="Название",
+        max_length=100,
+        unique=True,
+    )
+    effect = models.ForeignKey(
+        verbose_name="Эффект",
+        to=Effect,
+        on_delete=models.CASCADE,
+    )
+    image = models.ImageField(
+        verbose_name="Пиктограмма",
+        upload_to="images/skills/",
+    )
+
+    class Meta:
+        verbose_name = "Навык"
+        verbose_name_plural = "Навыки"
+        ordering = ["title"]
+
+    def __str__(self):
+        return self.title
 
 
 class AvatarStats(models.Model):
