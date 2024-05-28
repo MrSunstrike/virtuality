@@ -92,7 +92,39 @@ class Skill(models.Model):
 
 
 class AvatarStats(models.Model):
-    pass
+    max_hp = models.IntegerField(verbose_name="Максимальный запас здоровья")
+    current_hp = models.IntegerField(verbose_name="Текущий запас здоровья")
+
+    max_mp = models.IntegerField(verbose_name="Максимальный запас маны")
+    current_mp = models.IntegerField(verbose_name="Текущий запас маны")
+
+    max_sp = models.IntegerField(verbose_name="Максимальный запас выносливости")
+    current_sp = models.IntegerField(verbose_name="Текущий запас выносливости")
+
+    physical_damage = models.IntegerField(verbose_name="Физический урон")
+    magical_damage = models.FloatField(verbose_name="Магический урон")
+
+    physical_defense = models.IntegerField(verbose_name="Защита от физического урона")
+    magical_defense = models.FloatField(verbose_name="Защита от магического урона")
+
+    reaction_speed = models.IntegerField(verbose_name="Скорость реакции")
+    movement_speed = models.IntegerField(verbose_name="Скорость передвижения")
+
+    critical_hit_chance = models.FloatField(verbose_name="Шанс на критический удар")
+    pierce_chance = models.FloatField(verbose_name="Шанс на пронзающий удар")
+
+    physical_damage_block_chance = models.FloatField(verbose_name="Шанс на блокирование физического урона")
+    physical_damage_reflect_chance = models.FloatField(verbose_name="Шанс на отражение физического урона")
+    dodge_chance = models.FloatField(verbose_name="Шанс на уворот от атаки")
+
+    luck = models.FloatField(verbose_name="Удача")
+
+    experience_points = models.IntegerField(verbose_name="Опыт")
+    level = models.IntegerField(verbose_name="Уровень")
+
+    class Meta:
+        verbose_name = "Характеристики питомца"
+        verbose_name_plural = "Характеристики питомцев"
 
 
 class Avatar(models.Model):
