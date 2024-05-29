@@ -2,6 +2,9 @@ from django.db import models
 
 
 class Effect(models.Model):
+    """
+    Модель, представляющая эффект, воздействующий на характеристики.
+    """
     class Stats(models.TextChoices):
         MAX_HP = ("max_hp", "Максимальный запас здоровья")
         CURRENT_HP = ("current_hp", "Текущий запас здоровья")
@@ -9,6 +12,7 @@ class Effect(models.Model):
         CURRENT_MP = ("current_mp", "Текущий запас маны")
         MAX_SP = ("max_sp", "Максимальный запас выносливости")
         CURRENT_SP = ("current_sp", "Текущий запас выносливости")
+        SATIETY = ("satiety", "Сытость")
         PHYSICAL_DAMAGE = ("physical_damage", "Физический урон")
         MAGICAL_DAMAGE = ("magical_damage", "Магический урон")
         PHYSICAL_DEFENSE = ("physical_defense", "Защита от физического урона")
@@ -60,6 +64,8 @@ class Effect(models.Model):
     )
     duration = models.IntegerField(
         verbose_name="Длительность эффекта (ходов)",
+        null=True,
+        blank=True,
     )
     is_infinite = models.BooleanField(
         verbose_name="Перманентный эффект",
