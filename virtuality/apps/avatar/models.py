@@ -149,6 +149,8 @@ class AvatarStats(models.Model):
     max_sp = models.IntegerField(verbose_name="Максимальный запас выносливости")
     current_sp = models.IntegerField(verbose_name="Текущий запас выносливости")
 
+    satiety = models.IntegerField(verbose_name="Сытость")
+
     physical_damage = models.IntegerField(verbose_name="Физический урон")
     magical_damage = models.FloatField(verbose_name="Магический урон")
 

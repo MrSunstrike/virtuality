@@ -9,6 +9,7 @@ class Effect(models.Model):
         CURRENT_MP = ("current_mp", "Текущий запас маны")
         MAX_SP = ("max_sp", "Максимальный запас выносливости")
         CURRENT_SP = ("current_sp", "Текущий запас выносливости")
+        SATIETY = ("satiety", "Сытость")
         PHYSICAL_DAMAGE = ("physical_damage", "Физический урон")
         MAGICAL_DAMAGE = ("magical_damage", "Магический урон")
         PHYSICAL_DEFENSE = ("physical_defense", "Защита от физического урона")
