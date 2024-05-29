@@ -4,6 +4,9 @@ from django.db import models
 
 
 class SpeciesLevelUpStats(models.Model):
+    """
+    Модель, представляющая схему увеличения характеристик для вида при повышении уровня.
+    """
     max_hp_increase = models.PositiveIntegerField(
         verbose_name="Максимальный запас здоровья",
     )
@@ -56,6 +59,9 @@ class SpeciesLevelUpStats(models.Model):
 
 
 class Species(models.Model):
+    """
+    Модель, представляющая вид питомца.
+    """
     name = models.CharField(
         verbose_name="Название",
         max_length=100,
@@ -85,6 +91,9 @@ class Species(models.Model):
 
 
 class Specialization(models.Model):
+    """
+    Модель, представляющая специализацию.
+    """
     title = models.CharField(
         verbose_name="Название",
         max_length=100,
@@ -109,6 +118,9 @@ class Specialization(models.Model):
 
 
 class Skill(models.Model):
+    """
+    Модель, представляющая навык.
+    """
     avatar_specialization = models.ForeignKey(
         verbose_name="Специализация",
         to=Specialization,
@@ -140,6 +152,9 @@ class Skill(models.Model):
 
 
 class AvatarStats(models.Model):
+    """
+    Модель, представляющая характеристики питомца.
+    """
     max_hp = models.IntegerField(verbose_name="Максимальный запас здоровья")
     current_hp = models.IntegerField(verbose_name="Текущий запас здоровья")
 
@@ -178,6 +193,9 @@ class AvatarStats(models.Model):
 
 
 class Avatar(models.Model):
+    """
+    Модель, представляющая питомца.
+    """
     class AvatarGender(models.TextChoices):
         MALE = "M", "Самец"
         FEMALE = "F", "Самка"

@@ -2,6 +2,9 @@ from django.db import models
 
 
 class Effect(models.Model):
+    """
+    Модель, представляющая эффект, воздействующий на характеристики.
+    """
     class Stats(models.TextChoices):
         MAX_HP = ("max_hp", "Максимальный запас здоровья")
         CURRENT_HP = ("current_hp", "Текущий запас здоровья")
