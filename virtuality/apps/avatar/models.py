@@ -57,12 +57,12 @@ class SpeciesLevelUpStats(models.Model):
 
 class Species(models.Model):
     name = models.CharField(
-        verbose_name="Название вида",
+        verbose_name="Название",
         max_length=100,
         unique=True,
     )
     description = models.TextField(
-        verbose_name="Описание вида",
+        verbose_name="Описание",
         max_length=1000,
     )
     enhancement_stats = models.OneToOneField(
