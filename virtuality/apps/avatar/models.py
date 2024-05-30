@@ -132,10 +132,10 @@ class Skill(models.Model):
         max_length=100,
         unique=True,
     )
-    effect = models.ForeignKey(
+    effect = models.ManyToManyField(
         verbose_name="Эффект",
         to=Effect,
-        on_delete=models.CASCADE,
+        related_name="skills",
     )
     image = models.ImageField(
         verbose_name="Пиктограмма",
