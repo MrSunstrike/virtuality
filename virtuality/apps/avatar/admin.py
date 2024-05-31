@@ -1,6 +1,6 @@
+from apps.avatar.models import (Avatar, AvatarStats, Skill, Specialization,
+                                Species, SpeciesLevelUpStats)
 from django.contrib import admin
-
-from apps.avatar.models import Avatar, AvatarStats, Skill, Specialization, Species, SpeciesLevelUpStats
 
 
 @admin.register(Avatar)
